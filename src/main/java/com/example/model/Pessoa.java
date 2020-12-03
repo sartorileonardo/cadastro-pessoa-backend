@@ -35,11 +35,9 @@ public class Pessoa {
     private String naturalidade;
     private String nacionalidade;
 
-    @Column(unique=true)
     private String cpf;
 
     @Column(name = "atualizado", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/MM/YYYY")
     public Timestamp atualizado;
 
