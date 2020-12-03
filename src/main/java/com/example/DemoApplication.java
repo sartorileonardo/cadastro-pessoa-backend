@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.model.Pessoa;
 import com.example.repository.PessoaRepository;
+import com.example.utils.Utils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,7 +32,11 @@ public class DemoApplication {
 						p.setDataNascimento(Date.valueOf(LocalDate.now()));
 						p.setNaturalidade("Florianopolis");
 						p.setNacionalidade("Brasileiro");
-						p.setCpf("084.173.429-45");
+						try {
+							p.setCpf(Utils.geraCPF());
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 						return p;
 					})
 					.map(v -> repository.save(v))
