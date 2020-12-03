@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -35,6 +36,7 @@ public class Pessoa {
     private String naturalidade;
     private String nacionalidade;
 
+    @CPF
     private String cpf;
 
     @Column(name = "atualizado", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
