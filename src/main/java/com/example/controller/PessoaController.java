@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.model.Pessoa;
 import com.example.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,11 @@ public class PessoaController {
         return repository.findById(id)
                 .map(record -> ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping(path = "/findByName/{nome}")
+    public ResponseEntity<?> findByNameIgnoreCaseContainingOrderByNameAsc(@PathVariable String nome){
+        return new ResponseEntity<>(repository.findByNameIgnoreCaseContainingOrderByNameAsc(nome), HttpStatus.OK);
     }
 
     @PostMapping
