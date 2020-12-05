@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Integer> {
-    List<Pessoa> findByNameIgnoreCaseContainingOrderByNameAsc(String nome);
+    List<Pessoa> findByNomeIgnoreCaseContainingOrderByNomeAsc(String nome);
 }

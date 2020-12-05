@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping({"/pessoas"})
 public class PessoaController {
@@ -29,8 +30,8 @@ public class PessoaController {
     }
 
     @GetMapping(path = "/findByName/{nome}")
-    public ResponseEntity<?> findByNameIgnoreCaseContainingOrderByNameAsc(@PathVariable String nome){
-        return new ResponseEntity<>(repository.findByNameIgnoreCaseContainingOrderByNameAsc(nome), HttpStatus.OK);
+    public ResponseEntity<?> findByNomeIgnoreCaseContainingOrderByNomeAsc(@PathVariable String nome){
+        return new ResponseEntity<>(repository.findByNomeIgnoreCaseContainingOrderByNomeAsc(nome), HttpStatus.OK);
     }
 
     @PostMapping
