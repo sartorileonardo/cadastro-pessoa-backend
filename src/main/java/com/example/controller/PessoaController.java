@@ -54,12 +54,9 @@ public class PessoaController {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping(path = {"/{id}"})
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        return repository.findById(id)
-                .map(p -> {
-                    repository.deleteById(id);
-                    return ResponseEntity.ok().build();
-                }).orElse(ResponseEntity.notFound().build());
+    @DeleteMapping(path = "/deleteAll")
+    public ResponseEntity<?> deleteAll(){
+        repository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
