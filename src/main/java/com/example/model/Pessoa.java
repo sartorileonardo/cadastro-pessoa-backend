@@ -27,7 +27,7 @@ public class Pessoa {
 
     private String sexo;
 
-    @Email
+    @Email(regexp=".*@.*\\..*", message = "Email nao esta valido")
     private String email;
 
     @Column(name="data_nascimento")
@@ -36,7 +36,7 @@ public class Pessoa {
     private String naturalidade;
     private String nacionalidade;
 
-    @CPF
+    @CPF(message = "O CPF nao esta valido")
     private String cpf;
 
     @Column(name = "atualizado", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
