@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.LongStream;
 
 @SpringBootApplication
@@ -26,8 +29,10 @@ public class DemoApplication {
 			LongStream.range(1, 11)
 					.mapToObj(i -> {
 						Pessoa p = new Pessoa();
-						p.setNome("Pessoa " + i);
-						p.setEmail("pessoa" + i + "@gmail.com");
+						String name = Utils.getNameGenerated();
+
+						p.setNome(name);
+						p.setEmail(name.toLowerCase().replace(" ", "_") + "@gmail.com");
 						p.setSexo("M");
 						p.setDataNascimento(Date.valueOf(LocalDate.now()));
 						p.setNaturalidade("Florianopolis");

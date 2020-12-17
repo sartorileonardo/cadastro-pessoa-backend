@@ -1,5 +1,7 @@
 package com.example.utils;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Utils {
@@ -76,6 +78,16 @@ public class Utils {
         System.out.println("CPF Gerado " + numeroGerado);
 
         return numeroGerado;
+    }
+
+    private static Integer getRandomIntegerNumber(Integer numbexMax){
+        return new Random().nextInt(numbexMax);
+    }
+
+    public static String getNameGenerated(){
+        List<String> names = Arrays.asList("Joao da Silva", "Maria dos Santos", "Jose Farias", "Pedro Alves", "Mariana Ferreira", "Jessica Rodrigues", "Leonardo Pereira", "Juca Lima", "Mario Gomes", "Alessandro Martins");
+        Integer position = getRandomIntegerNumber(10);
+        return names.get(position);
     }
 
 }
