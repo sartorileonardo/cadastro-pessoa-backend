@@ -59,7 +59,10 @@ public class PessoaController {
                     p.setNaturalidade(pessoa.getNaturalidade());
                     p.setNacionalidade(pessoa.getNacionalidade());
                     p.setCpf(pessoa.getCpf());
-                    return ResponseEntity.ok().body(p);
+
+                    Pessoa pessoaUpdated = repository.save(p);
+
+                    return ResponseEntity.ok().body(pessoaUpdated);
                 }).orElse(ResponseEntity.notFound().build());
     }
 
